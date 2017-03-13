@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>300</height>
+    <width>524</width>
+    <height>123</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -23,11 +23,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <widget class="QLabel" name="clock">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
+      <x>50</x>
+      <y>30</y>
       <width>211</width>
       <height>101</height>
      </rect>
@@ -53,8 +59,8 @@
    <widget class="QPushButton" name="startButton">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>140</y>
+      <x>310</x>
+      <y>180</y>
       <width>75</width>
       <height>41</height>
      </rect>
@@ -67,7 +73,7 @@
    <widget class="QPushButton" name="stopButton">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>170</x>
       <y>140</y>
       <width>71</width>
       <height>41</height>
@@ -75,6 +81,32 @@
     </property>
     <property name="text">
      <string>Stop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="increaseTimerButton">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>50</y>
+      <width>75</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="decreaseTimerButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>75</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
     </property>
    </widget>
   </widget>

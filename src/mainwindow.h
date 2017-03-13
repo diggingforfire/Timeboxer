@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
-#include <QTime>
+#include <QDateTime>
 
 namespace Ui {
 class MainWindow;
@@ -21,14 +21,20 @@ private slots:
     void start();
     void stop();
     void update();
+    void decreaseTimer();
+    void increaseTimer();
 
 private:
     Ui::MainWindow *ui;
     QTimer updateTimer;
-    QTime endTime;
-    int minutes = 5;
+    QDateTime endTime;
+    const int minMinutes = 5;
+    const int maxMinutes = 60;
+    const int stepSize = 5;
+    int currentMinutes = 5;
     const int updateInterval = 100; // most certainly overkill but whatever
-    void setTimeLeft(int timeLeft);
+    void setTimeLeftText(int minutes, int seconds);
+    void setEndTime();
 };
 
 #endif // MAINWINDOW_H
