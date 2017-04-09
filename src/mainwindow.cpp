@@ -2,11 +2,10 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    QMainWindow(parent, Qt::Window | Qt::FramelessWindowHint),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->mainToolBar->setVisible(false);
     ui->stopButton->setEnabled(false);
     ui->decreaseTimerButton->setEnabled(false);
 
@@ -103,6 +102,24 @@ void MainWindow::setTimeLeftText(int minutes, int seconds)
 {
     QString labelText = QString("%1:%2").arg(QString::number(minutes), QString::number(seconds).rightJustified(2, '0'));
     ui->clock->setText(labelText);
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::LeftButton)
+    {
+        dragPosition = event->globalPos() - frameGeometry().topLeft();
+        event->accept();
+    }
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if (event->buttons() & Qt::LeftButton)
+    {
+        move(event->globalPos() - dragPosition);
+        event->accept();
+    }
 }
 
 MainWindow::~MainWindow()

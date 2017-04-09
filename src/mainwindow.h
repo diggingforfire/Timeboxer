@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 #include <QDateTime>
+#include <QMouseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -35,6 +36,10 @@ private:
     const int updateInterval = 100; // most certainly overkill but whatever
     void setTimeLeftText(int minutes, int seconds);
     void setEndTime();
+
+    QPoint dragPosition;
+    void mouseMoveEvent(QMouseEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
 };
 
 #endif // MAINWINDOW_H
